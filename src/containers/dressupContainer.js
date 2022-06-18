@@ -5,40 +5,35 @@ import WardrobeView from '../components/wardrobeView';
 
 const DressUpContainer = () => {
     const baseWear = {
-        top: [null, 0],
-        bottom: null,
-        shoes: null,
+        top: 0,
+        bottom: 0,
+        acc: 0,
     }
 
     const [wearing, setWearing] = useState(baseWear)
+    const [currentType, setType] = useState('top')
 
-    const dressUp = (type, value, view) => {
+
+
+    const dressUp = (type, view) => {
 
         setWearing(prevState => ({
             ...prevState,
-            [type]: [value, view]
+            [type]: view
         }))
 
-        // if (wearing.top == 'a longsleeve') {
-        //     console.log("yes")
-        //     setWearing(prevState => ({
-        //         ...prevState,
-        //         'top': [...value]
-        //     }))
-        // } else {
-        //     setWearing(prevState => ({
-        //         ...prevState,
-        //         'top': 'a longsleeve'
-        //     }))
-        //     console.log("no")
-        // }
+    }
+
+    const changeType = (type) => {
+        console.log(type)
+        setType(type)
     }
 
     return (
         <>
         <div>
         <CharacterView wearing = {wearing} />
-        <WardrobeView dressUp = {dressUp}/>
+        <WardrobeView dressUp = {dressUp} wearing = {wearing} changeType = {changeType} currentType = {currentType}/>
         </div>
         </>
     )
