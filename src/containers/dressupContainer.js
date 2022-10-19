@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
-import CharacterView from '../components/characterView';
-import WardrobeView from '../components/wardrobeView';
+import React, { useState } from 'react'
+import CharacterView from '../components/characterView'
+import WardrobeView from '../components/wardrobeView'
+import { Container, Box } from '@mui/material'
+import model from '../imgs/12_27_dress up test1_model2.png'
 
 
 const DressUpContainer = () => {
@@ -30,13 +32,24 @@ const DressUpContainer = () => {
     }
 
     return (
+        // <>
+        //         <Box component='div' style={{backgroundColor: 'blue', height: '100vh'}}>
+        //             hello
+        //             <CharacterView wearing={wearing} />
+        //             {/* <WardrobeView dressUp={dressUp} wearing={wearing} changeType={changeType} currentType={currentType} /> */}
+        //         </Box>
+        // </>
+
         <>
-        <div>
-        <CharacterView wearing = {wearing} />
-        <WardrobeView dressUp = {dressUp} wearing = {wearing} changeType = {changeType} currentType = {currentType}/>
-        </div>
+        <Box component='div' style={{backgroundColor: 'blue', maxWidth: '100vw'}}>
+        <CharacterView wearing={wearing} />
+            {/* <Box component='img' src={model} style={{maxHeight: '85vh', maxWidth: '100%'}} /> */}
+            {/* <Box component='div' style={{backgroundColor: 'orange', maxHeight: '20vh'}}> */}
+                <WardrobeView dressUp={dressUp} wearing={wearing} changeType={changeType} currentType={currentType}/>
+                {/* </Box> */}
+        </Box>
         </>
     )
 }
 
-export default DressUpContainer;
+export default DressUpContainer
