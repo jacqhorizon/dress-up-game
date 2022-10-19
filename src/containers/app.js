@@ -1,6 +1,6 @@
 import React from 'react';
 import DressUpContainer from './dressupContainer';
-import { Container } from '@mui/material';
+import { Container, Box } from '@mui/material';
 
 const styles = {
     // page: {
@@ -14,11 +14,7 @@ const AppContainer = () => {
 
     return (
         <>
-        {/* <div style={styles.page}> */}
-        <Container style={{backgroundColor: 'green', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', bottom: '0px', top: '0px'}}>
-            <DressUpContainer />
-        </Container>
-        {/* </div> */}
+<DressUpContainer />
         </>
     )
 }
