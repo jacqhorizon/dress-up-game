@@ -12,7 +12,12 @@ const DressUpContainer = () => {
     const WARDROBE = [
         { type: 'top', alt: 'Shell Top', image: '12_27_dress_up_test1_top2_ver2.png', icon: '12_28_top2_icon.png' },
         { type: 'top', alt: 'Dress Top', image: '12_27_dress_up_test1_top1_ver2.png', icon: '12_28_top1_icon.png' },
-        { type: 'acc', alt: 'Acc', value: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' }
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' },
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' },
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' },
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' },
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' },
+        { type: 'acc', alt: 'Acc', image: '12_27_dress_up_test1_acc1_ver2.png', icon: '12_28_acc1_icon.png' }
     ]
 
     const [wearing, setWearing] = useState(baseWear)
@@ -20,10 +25,13 @@ const DressUpContainer = () => {
     const [filteredWardrobe, setFilteredWardrobe] = useState(WARDROBE.filter((item) => item.type == 'top'))
 
     const dressUp = (item) => {
-        setWearing(prevState => ({
-            ...prevState,
-            [item.type]: item
-        }))
+        setWearing((prevState) => {
+            if (prevState[item.type].image == item.image) {
+                return ({...prevState, [item.type]: {}})
+            } else {
+                return ({...prevState, [item.type]: item})
+            }
+        })
     }
 
     const changeType = (type) => {
@@ -44,6 +52,7 @@ const DressUpContainer = () => {
             gridColumnStart: 1,
             gridRowStart: 1,
             maxHeight: '80vh',
+            maxWidth: '100vw',
             margin: 'auto auto'
         },
         icon: {
@@ -81,7 +90,7 @@ const DressUpContainer = () => {
                             )
                         })}
                     </Box>
-                    <Box sx={{ backgroundColor: 'green', display: 'flex', flexDirection: { xs: 'row', md: 'column' }, width: { xs: '100vw', md: '200px' } }}>
+                    <Box sx={{ backgroundColor: 'green', overflowY: {xs: 'hidden', md: 'scroll'}, overflowX: {xs: 'scroll', md: 'hidden'}, display: 'flex', flexDirection: { xs: 'row', md: 'column' }, width: { xs: '100vw', md: '200px' } }}>
                         {filteredWardrobe.map((item, index) => {
                             return (
                                 <React.Fragment key={index}>
