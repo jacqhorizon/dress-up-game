@@ -1,6 +1,6 @@
-import React from 'react';
-import DressUpContainer from './dressupContainer';
-import { Container, Box } from '@mui/material';
+import React from 'react'
+import DressUpContainer from './dressupContainer'
+import { Container, Box } from '@mui/material'
 
 const styles = {
     // page: {
@@ -14,9 +14,9 @@ const AppContainer = () => {
 
     return (
         <>
-<DressUpContainer />
+            <DressUpContainer />
         </>
     )
 }
 
-export default AppContainer;
+export default AppContainer
