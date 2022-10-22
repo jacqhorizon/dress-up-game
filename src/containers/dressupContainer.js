@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-
-import { Container, Box, Grid, useMediaQuery, IconButton } from '@mui/material'
+import { Box, IconButton } from '@mui/material'
 import model from '../imgs/base_01.png'
 import BACKGROUND from '../imgs/BACKGROUND.png'
 
@@ -100,8 +99,6 @@ const DressUpContainer = () => {
         { value: 'shoe', alt: 'Shoe Options', icon: 'previews/shoe_01prev.png' },
     ]
 
-    // const TYPES = Array.from(new Set(WARDROBE.map((item) => item.type)))
-
     const styles = {
         alignment: {
             gridColumnStart: 1,
@@ -123,7 +120,6 @@ const DressUpContainer = () => {
 
     return (
         <>
-
             <Box sx={{ ...styles.position, backgroundImage: `url(${BACKGROUND})`, backgroundSize: '200px', backgroundRepeat: 'repeat' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', position: 'absolute', bottom: 0, top: 0, left: { xs: 0, md: '20%' }, right: { xs: 0, md: '20%' } }}>
                     <Box style={{ backgroundColor: '#4fa1a5', display: 'grid', gridTemplateColumns: '100%', gridTemplateRows: '100%' }}>
@@ -140,8 +136,9 @@ const DressUpContainer = () => {
                             background: 'linear-gradient(180deg, rgba(187,238,255,1) 0%, rgba(124,225,195,1) 100%)',
                         }} />
                     </Box>
+
                     <Box sx={{ backgroundColor: '#BBEEFF', height: '100%', display: 'flex', flexDirection: 'column', padding: '0px 10px' }}>
-                        <Box sx={{ display: 'flex', /*flexDirection: { xs: 'row', md: 'column' },*/ width: '100%', paddingTop: '10px' }}>
+                        <Box sx={{ display: 'flex', width: '100%', paddingTop: '10px' }}>
                             {TYPES.map((item, index) => {
                                 let selected = false
                                 if (currentType == item.value) {
@@ -166,11 +163,12 @@ const DressUpContainer = () => {
                                 )
                             })}
                         </Box>
+
                         <Box sx={{ backgroundColor: '#fff', overflowY: 'hidden', overflowX: 'scroll', display: 'flex', flexDirection: 'row', width: '100%', height: '100%' }}>
                             {filteredWardrobe.map((item, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <div onClick={() => dressUp(item)}>
+                                        <div style={{ cursor: 'pointer' }} onClick={() => dressUp(item)}>
                                             <img src={require(`../imgs/${item.icon}`)} style={styles.icon} /></div>
                                     </React.Fragment>
                                 )
@@ -178,7 +176,6 @@ const DressUpContainer = () => {
                         </Box>
                     </Box>
                 </Box>
-
             </Box>
         </>
     )
