@@ -108,9 +108,7 @@ const DressUpContainer = () => {
             gridRowStart: 1,
             maxHeight: '75vh',
             maxWidth: '100vw',
-            margin: 'auto auto',
-            background: 'rgb(187,238,255)',
-            background: 'linear-gradient(180deg, rgba(187,238,255,1) 0%, rgba(124,225,195,1) 100%)',
+            margin: 'auto auto'
         },
         icon: {
             maxHeight: '13vh'
@@ -136,7 +134,11 @@ const DressUpContainer = () => {
                                 </React.Fragment>
                             )
                         })}
-                        <img src={model} style={styles.alignment} />
+                        <img src={model} style={{
+                            ...styles.alignment,
+                            background: 'rgb(187,238,255)',
+                            background: 'linear-gradient(180deg, rgba(187,238,255,1) 0%, rgba(124,225,195,1) 100%)',
+                        }} />
                     </Box>
                     <Box sx={{ backgroundColor: '#BBEEFF', height: '100%', display: 'flex', flexDirection: 'column', padding: '0px 10px' }}>
                         <Box sx={{ display: 'flex', /*flexDirection: { xs: 'row', md: 'column' },*/ width: '100%', paddingTop: '10px' }}>
@@ -152,13 +154,13 @@ const DressUpContainer = () => {
                                                 backgroundColor: currentType == item.value ? '#fff' : 'rgba(255, 255, 255, 0.5)',
                                                 margin: index == 0 ? '0px 5px 0px 0px' : '0px 5px',
                                                 borderRadius: '10px 10px 0px 0px',
-                                                '&:hover': {backgroundColor: '#fff'},
+                                                '&:hover': { backgroundColor: '#fff' },
                                                 maxHeight: '50px',
                                                 "& .MuiTouchRipple-root .MuiTouchRipple-child": {
                                                     borderRadius: "8px"
                                                 }
                                             }}>
-                                            <img src={require(`../imgs/${item.icon}`)} style={{...styles.types, opacity: currentType == item.value ? 1 : 0.8}} />
+                                            <img src={require(`../imgs/${item.icon}`)} style={{ ...styles.types, opacity: currentType == item.value ? 1 : 0.8 }} />
                                         </IconButton>
                                     </React.Fragment>
                                 )
