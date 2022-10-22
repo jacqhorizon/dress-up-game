@@ -56,11 +56,10 @@ const DressUpContainer = () => {
 
     ]
 
-    const RENDER = Array.from(new Set(WARDROBE.map((item) => { return item.subType })))
-
     const [wearing, setWearing] = useState(baseWear)
     const [currentType, setType] = useState('acc')
     const [filteredWardrobe, setFilteredWardrobe] = useState(WARDROBE.filter((item) => item.type == 'acc'))
+    const [choice, setChoice] = useState({});
 
     const dressUp = (item) => {
         let set
@@ -168,7 +167,12 @@ const DressUpContainer = () => {
                             {filteredWardrobe.map((item, index) => {
                                 return (
                                     <React.Fragment key={index}>
-                                        <div style={{ cursor: 'pointer' }} onClick={() => dressUp(item)}>
+                                        <div 
+                                        style={{ cursor: 'pointer' }} 
+                                        onClick={() => dressUp(item)}
+                                        onMouseOver={() => setChoice(item)}
+                                        onMouseOut={() => setChoice({})}
+                                        >
                                             <img src={require(`../imgs/${item.icon}`)} style={styles.icon} /></div>
                                     </React.Fragment>
                                 )
